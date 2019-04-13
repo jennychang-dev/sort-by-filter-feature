@@ -47,6 +47,7 @@ class SortByFilterView: UIView, UITableViewDelegate, UITableViewDataSource{
         super.init(coder: aDecoder)
         
         nibSetUp()
+        setUpBoldFormat()
     }
     
     func nibSetUp() {
@@ -55,6 +56,19 @@ class SortByFilterView: UIView, UITableViewDelegate, UITableViewDataSource{
         myView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(myView)
         clipsToBounds = false
+    }
+    
+    func setUpBoldFormat() {
+        
+        let attributedString = NSMutableAttributedString(string: sortByLabel.text!)
+        let attribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 18),
+        ]
+        
+        attributedString.addAttributes(attribute
+            , range: NSRange(location: 8, length: sortByLabel.text!.count - 8))
+        
+        sortByLabel.attributedText = attributedString
     }
     
     @IBAction func toggleButtonTapped(_ sender: Any) {
@@ -69,6 +83,9 @@ class SortByFilterView: UIView, UITableViewDelegate, UITableViewDataSource{
         toggled = true
         }
     }
+    
+
+    // MARK: - Tableview delegates
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -100,6 +117,7 @@ class SortByFilterView: UIView, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         sortByLabel.text = "Sort by \(list[indexPath.row])"
+        setUpBoldFormat()
         selectedRow = indexPath.row
         toggled = false
         

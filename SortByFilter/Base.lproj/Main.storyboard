@@ -19,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRy-gD-3bV" customClass="SortByFilterView" customModule="SortByFilter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="REY-14-xwt"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dLT-75-zVL">
-                                <rect key="frame" x="0.0" y="244" width="414" height="652"/>
+                                <rect key="frame" x="0.0" y="314" width="414" height="582"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="kM8-P2-rg0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="kM8-P2-rg0">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kM8-P2-rg0" id="oMt-CU-dod">
@@ -39,20 +39,42 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGP-5C-Zwq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should move with the table view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a1-Mf-nX3">
+                                        <rect key="frame" x="83.5" y="25" width="247" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8a1-Mf-nX3" secondAttribute="bottom" constant="24" id="jjG-Dm-Wxr"/>
+                                    <constraint firstAttribute="height" constant="70" id="r3H-6x-yuL"/>
+                                    <constraint firstItem="8a1-Mf-nX3" firstAttribute="centerX" secondItem="jGP-5C-Zwq" secondAttribute="centerX" id="yA2-OY-VvR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VRy-gD-3bV" firstAttribute="top" secondItem="jGP-5C-Zwq" secondAttribute="bottom" id="AiV-CV-0dX"/>
+                            <constraint firstItem="jGP-5C-Zwq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="B7l-Gi-Ihk"/>
                             <constraint firstItem="VRy-gD-3bV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ciu-FF-C0Q"/>
                             <constraint firstItem="dLT-75-zVL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NvY-EP-iH3"/>
+                            <constraint firstItem="VRy-gD-3bV" firstAttribute="top" secondItem="jGP-5C-Zwq" secondAttribute="bottom" id="bs0-0x-7Gq"/>
+                            <constraint firstItem="jGP-5C-Zwq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eKx-HE-Taa"/>
                             <constraint firstItem="dLT-75-zVL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eg4-Po-d1w"/>
-                            <constraint firstItem="VRy-gD-3bV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jCh-MP-2G7"/>
                             <constraint firstItem="VRy-gD-3bV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="liu-h0-Vji"/>
                             <constraint firstAttribute="bottom" secondItem="dLT-75-zVL" secondAttribute="bottom" id="m6o-VU-Mo3"/>
+                            <constraint firstItem="jGP-5C-Zwq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mWf-Ro-56e"/>
                             <constraint firstItem="dLT-75-zVL" firstAttribute="top" secondItem="VRy-gD-3bV" secondAttribute="bottom" id="sGt-y8-lFC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="redViewHeight" destination="r3H-6x-yuL" id="1Vn-Wc-654"/>
                         <outlet property="sortByFilterView" destination="VRy-gD-3bV" id="cEL-dY-y7d"/>
                         <outlet property="sortByFilterViewHeight" destination="REY-14-xwt" id="0Fw-zf-qCO"/>
                         <outlet property="tableView" destination="dLT-75-zVL" id="xs0-KX-2Hn"/>

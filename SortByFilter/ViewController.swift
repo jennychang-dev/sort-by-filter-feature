@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, DropDownViewProtocol {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DropDownViewProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortByFilterView: SortByFilterView!
+    @IBOutlet weak var redViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var sortByFilterViewHeight: NSLayoutConstraint!
 
     
@@ -19,10 +21,12 @@ class ViewController: UIViewController, UITableViewDataSource, DropDownViewProto
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.topAnchor.constraint(equalTo: sortByFilterView.bottomAnchor, constant: 0).isActive = true
         
         sortByFilterView.toggled = false
+        sortByFilterView.dropdownTableView.isScrollEnabled = false
         sortByFilterView.dropdownTableHeight.constant = 0
         
         setUpDropDownList()
@@ -59,6 +63,19 @@ class ViewController: UIViewController, UITableViewDataSource, DropDownViewProto
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "Mole \(indexPath.row+1)"
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        closeDropDownList()
+        
+        var contentInsetTop = scrollView.contentOffset.y + scrollView.contentInset.top
+        
+        contentInsetTop = min(contentInsetTop, scrollView.contentInset.top)
+        redViewHeight.constant = -contentInsetTop <= 0 ? -contentInsetTop : 0
+//
+//        CGFloat contentInsetTop
+        
     }
     
 }
