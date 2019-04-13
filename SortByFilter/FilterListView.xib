@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortByFilterView" customModule="SortByFilter" customModuleProvider="target">
+            <connections>
+                <outlet property="dropdownTableHeight" destination="Fjn-bh-oR9" id="d16-kV-efj"/>
+                <outlet property="dropdownTableView" destination="4pJ-pK-xcj" id="FWp-oe-DhO"/>
+                <outlet property="sortByLabel" destination="guv-uw-lzA" id="056-kO-54n"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jal-eE-VFr">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4pJ-pK-xcj">
+                    <rect key="frame" x="0.0" y="90" width="414" height="160"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="Fjn-bh-oR9"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="CMR-I6-VaG"/>
+                        <outlet property="delegate" destination="-1" id="uC4-LR-dh0"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-FZ-bY0">
+                    <rect key="frame" x="358" y="20" width="36" height="36"/>
+                    <state key="normal" image="sort"/>
+                    <connections>
+                        <action selector="toggleButtonTapped:" destination="-1" eventType="touchUpInside" id="eD1-2V-QFc"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by Body Part" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guv-uw-lzA">
+                    <rect key="frame" x="20" y="20" width="135.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4pJ-pK-xcj" firstAttribute="trailing" secondItem="dRz-A0-kgj" secondAttribute="trailing" id="F1w-Dl-bhp"/>
+                <constraint firstItem="guv-uw-lzA" firstAttribute="leading" secondItem="dRz-A0-kgj" secondAttribute="leading" constant="20" id="Nl0-1b-JoC"/>
+                <constraint firstItem="ANS-FZ-bY0" firstAttribute="top" secondItem="jal-eE-VFr" secondAttribute="top" constant="20" id="WcP-Ar-RGE"/>
+                <constraint firstItem="guv-uw-lzA" firstAttribute="top" secondItem="jal-eE-VFr" secondAttribute="top" constant="20" id="gxU-MJ-sQd"/>
+                <constraint firstItem="4pJ-pK-xcj" firstAttribute="leading" secondItem="dRz-A0-kgj" secondAttribute="leading" id="hhR-Pp-Uof"/>
+                <constraint firstAttribute="bottom" secondItem="4pJ-pK-xcj" secondAttribute="bottom" id="hzS-V4-mAc"/>
+                <constraint firstItem="guv-uw-lzA" firstAttribute="leading" secondItem="jal-eE-VFr" secondAttribute="leading" constant="20" id="oj2-yE-A4v"/>
+                <constraint firstItem="dRz-A0-kgj" firstAttribute="trailing" secondItem="ANS-FZ-bY0" secondAttribute="trailing" constant="20" id="tXw-fn-chn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dRz-A0-kgj"/>
+            <point key="canvasLocation" x="60.869565217391312" y="-162.05357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sort" width="36" height="36"/>
+    </resources>
+</document>
